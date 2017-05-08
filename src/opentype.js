@@ -68,11 +68,10 @@ function loadFromUrl(url, callback) {
     request.open('get', url, true);
     request.responseType = 'arraybuffer';
     request.onload = function() {
-        if (request.status !== 200) {
-            return callback('Font could not be loaded: ' + request.statusText);
+        if (request.status >= 200 && request.status < 300 || request.status === 304 || (request.status === 0 && request.response !== '')) {
+            return callback(null, request.response);
         }
-
-        return callback(null, request.response);
+        return callback('Font could not be loaded: ' + request.statusText);
     };
 
     request.onerror = function () {

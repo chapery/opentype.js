@@ -7,5 +7,6 @@
     "requireSpacesInAnonymousFunctionExpression": null,
     "requireSpacesInsideObjectBrackets": null,
     "requireTrailingComma": null,
-    "maximumLineLength": 200
+    "maximumLineLength": 200,
+    "validateLineBreaks": false
 }
